@@ -24,19 +24,21 @@
         { id: 9, color: 'LightCoral' }
       ],
       links: [
-        { source: 1, target: 0 },
-        { source: 2, target: 0 },
-        { source: 3, target: 0 },
-        { source: 4, target: 1 },
-        { source: 5, target: 1 },
-        { source: 6, target: 2 },
-        { source: 7, target: 3 },
-        { source: 8, target: 3 },
-        { source: 9, target: 4 }
+        { source: 1, target: 0, width: 3 },
+        { source: 2, target: 0, width: 3 },
+        { source: 3, target: 0, width: 3 },
+        { source: 4, target: 1, width: 1 },
+        { source: 5, target: 1, width: 6 },
+        { source: 6, target: 2, width: 6 },
+        { source: 7, target: 3, width: 6 },
+        { source: 8, target: 3, width: 6 },
+        { source: 9, target: 4, width: 6 }
       ]
     };
 
     const Graph = new ForceGraph3D(document.getElementById('3d-graph'))
-        .graphData(gData);
+        .graphData(gData)
+        .nodeColor('color')    // read each node's color from its "color" property
+        .linkWidth('width');   // read each link's width from its "width" property
   </script>
 </body>
