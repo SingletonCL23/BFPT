@@ -1,0 +1,44 @@
+<head>
+  <style> body { margin: 0; } </style>
+
+  <script src="//cdn.jsdelivr.net/npm/3d-force-graph"></script>
+  <!--<script src="../../dist/3d-force-graph.js"></script>-->
+</head>
+
+<body>
+  <div id="3d-graph"></div>
+
+  <script>
+    // Hand-written graph: 10 nodes, each with its own color
+    const gData = {
+      nodes: [
+        { id: 0, color: 'red' },
+        { id: 1, color: 'orange' },
+        { id: 2, color: 'yellow' },
+        { id: 3, color: 'lime' },
+        { id: 4, color: 'cyan' },
+        { id: 5, color: 'dodgerblue' },
+        { id: 6, color: 'violet' },
+        { id: 7, color: '#ff69b4' },   // hex codes work too
+        { id: 8, color: '#ffffff' },
+        { id: 9, color: 'rgb(150, 75, 0)' }  // and rgb() strings
+      ],
+      links: [
+        { source: 1, target: 0, width: 4 },
+        { source: 2, target: 0, width: 4 },
+        { source: 3, target: 0, width: 4 },
+        { source: 4, target: 1, width: 2 },
+        { source: 5, target: 1, width: 2 },
+        { source: 6, target: 2, width: 2 },
+        { source: 7, target: 3, width: 1 },
+        { source: 8, target: 3, width: 1 },
+        { source: 9, target: 4, width: 0.5 }
+      ]
+    };
+
+    const Graph = new ForceGraph3D(document.getElementById('3d-graph'))
+        .graphData(gData)
+        .nodeColor('color')    // read each node's color from its "color" property
+        .linkWidth('width');   // read each link's width from its "width" property
+  </script>
+</body>
