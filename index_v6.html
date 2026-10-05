@@ -35,7 +35,7 @@
         { source: 9, target: 4, width: 0.5 }
       ]
     };
-
+const elem = document.getElementById('3d-graph');
     const Graph = new ForceGraph3D(document.getElementById('3d-graph'))
         .graphData(gData)
         .nodeLabel('name')     // show each node's "name" on hover
