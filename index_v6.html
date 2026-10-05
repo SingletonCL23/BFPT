@@ -41,6 +41,10 @@
         .nodeLabel('name')     // show each node's "name" on hover
         .nodeColor('color')    // read each node's color from its "color" property
         .nodeVal('val')        // read each node's size from its "val" property
-        .linkWidth('width');   // read each link's width from its "width" property
+        .linkWidth('width')   // read each link's width from its "width" property
+        .onNodeClick(node => window.open(node.url, '_blank'))   // open the node's website in a new tab
+        .onNodeHover(node => {
+          elem.style.cursor = node ? 'pointer' : null;          // hand cursor over nodes
+        });
   </script>
 </body>
